@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top sticky-top">
+    <div class="container-fluid">
+        <div class="navbar-brand">
+            <h3 class="text-white position-relative">User Management System
+                <span class="bi bi-person-check-fill"></span>
+            </h3>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div class="flex">
+                <ul class="navbar-nav nav-underline mt-1" id="navigation">
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="home">Home Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="login">Login</a>
+                    </li>
+                    <li class="nav-item" id="profile">
+                        <a class="nav-link" [routerLink]="['/user/dashboard',firstName]">
+                            <span class="bi-person-circle"></span>
+                        </a>
+                    </li>
+                    <li id="full-name" *ngIf="firstName">
+                        <label>Hi! {{firstName |uppercase | slice:0:5}}</label>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" routerLink="#" (click)="logOut()">Logout</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

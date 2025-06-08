@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div *ngIf="getUsersList().length==0">No User Data Found</div>
+    <h2>List Of Users :: {{getUsersList().length}}</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>FullName</th>
+                <th>Mobile</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usersList let i=index">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.fullName}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.address}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

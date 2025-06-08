@@ -1,0 +1,49 @@
+<div class="container-fluid d-flex justify-content-center">
+     <div class="border border-2 mt-lg-5 w-25 p-3">
+          <h2>{{saveOrUpdate}} Todo</h2>
+          <form #todoForm="ngForm" (ngSubmit)="submit(todoForm)">
+               <div>
+                    <label>Name</label>
+                    <input type="text" name="name" [(ngModel)]="todoObject.name" class="form-control">
+                    <div *ngIf="todoForm.control.touched && todoForm.control.invalid" class="text-danger">Name Required
+                    </div>
+               </div>
+               <div>
+                    <label>Description</label>
+                    <input type="text" name="description" [(ngModel)]="todoObject.description" class="form-control">
+                    <div *ngIf="todoForm.control.touched && todoForm.control.invalid" class="text-danger">Description
+                         Required</div>
+               </div>
+               <div>
+                    <label>Start Time</label>
+                    <input type="datetime-local" step="1" [readOnly]="disableStartTime" name="startTime"
+                         [(ngModel)]="todoObject.startTime" class="form-control">
+                    <!-- (ngModelChange)="todoObject.startTime=$event"> -->
+                    <div *ngIf="todoForm.control.touched && todoForm.control.invalid" class="text-danger">Start Time
+                         Required</div>
+               </div>
+               <div>
+                    <label>Deadline</label>
+                    <input type="datetime-local" step="1" name="endTime" [(ngModel)]="todoObject.endTime"
+                         class="form-control">
+                    <!-- (ngModelChange)="todoObject.endTime=$event"> -->
+                    <div *ngIf="todoForm.control.touched && todoForm.control.invalid" class="text-danger">Target
+                         Required</div>
+               </div>
+               <div>
+                    <label>isCompleted</label>
+                    <select name="completed" class="form-select" [(ngModel)]="todoObject.completed">
+                         <option value="true">Yes</option>
+                         <option value="false">No</option>
+                    </select>
+                    <!-- <input type="text" name="completed" [(ngModel)]="todoObject.completed" class="form-control"> -->
+                    <div *ngIf="todoForm.control.touched && todoForm.control.invalid" class="text-danger">Status
+                         Required</div>
+               </div>
+               <div class="m-2 d-grid">
+                    <button type="submit" class="btn btn-warning"
+                         [disabled]="todoForm.invalid">{{saveOrUpdate}}</button>
+               </div>
+          </form>
+     </div>
+</div>

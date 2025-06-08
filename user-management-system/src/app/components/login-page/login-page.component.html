@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="border border-5 border-dark shadow p-4">
+        <h2>Login User <span class="bi bi-person-check"></span></h2>
+        <div class="mb-2">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" [(ngModel)]="username" class="form-control" required>
+        </div>
+        <div class="mb-2">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" [(ngModel)]="password" class="form-control" required>
+        </div>
+        <div class="mb-2 d-grid">
+            <button class="btn btn-primary" (click)="loginUser()">Login</button>
+        </div>
+        <div>
+            <span>New user? </span>
+            <a [routerLink]="['/register']">Register Here </a>
+            <span class="bi bi-person-add"></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="mt-3">
+        <div *ngIf="getTodoList().length==0" class="d-flex justify-content-center align-items-center">
+            <h2>No Todo's Created Yet <span class="bi bi-emoji-frown-fill text-warning"></span></h2>
+        </div>
+        <div *ngIf="getTodoList().length!=0">
+            <h2>List Of Todos :: {{getTodoList().length}}</h2>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Start Time</th>
+                        <th>Deadline</th>
+                        <th>isCompleted</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let todo of getTodoList(); let i =index">
+                        <td>{{todo.id}}</td>
+                        <td>{{todo.name}}</td>
+                        <td>{{todo.description}}</td>
+                        <td>{{todo.startTime}}</td>
+                        <td>{{todo.endTime}}</td>
+                        <td>{{todo.completed?'YES':'NO'}}</td>
+                        <td>
+                            <button class="btn btn-warning" [routerLink]="['/user/todo_manage',firstName]"
+                                [queryParams]="{id:userId,todoId:todo.id}">Update</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deleteTodo(todo.id ,i)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-warning">
+                <a [routerLink]="['/user/todo_manage',firstName]" [queryParams]="{id:userId}">
+                    Create Todo
+                </a>
+            </button>
+            <div>
+              <h3>
+                  Todo's are Created 
+                  <span class="bi bi-emoji-laughing-fill text-warning"></span>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
