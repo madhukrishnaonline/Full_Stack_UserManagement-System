@@ -1,7 +1,29 @@
-#profile{
+/* #profile{
     margin-left: 700px;
     font-size: 35px;
+}*/
+
+#full-name {
+    /* position: absolute;
+    top: 0px;
+    margin-bottom: 5px; */
+    position: absolute;
+    top: 40%;
+    left: 86%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: white;
+    /* Adjust based on your icon color */
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    /* Improves readability */
+    font-size: 0.7em;
+    /* Adjust based on icon size */
+    pointer-events: none;
+    /* Allows clicks to pass through to icon */
+    
 }
-#full-name{
+
+#dashboard {
     font-size: 20px;
+    margin-left: 850px;
 }

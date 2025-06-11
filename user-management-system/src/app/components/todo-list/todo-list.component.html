@@ -43,7 +43,7 @@
                     Create Todo
                 </a>
             </button>
-            <div>
+            <div *ngIf="getTodoList().length!=0">
               <h3>
                   Todo's are Created 
                   <span class="bi bi-emoji-laughing-fill text-warning"></span>

@@ -14,7 +14,6 @@
                                 <div *ngIf="fullName?.errors?.['Required']">
                                     FullName Required
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -45,7 +44,7 @@
                         <div>
                             <label class="form-label">Confirm Password</label>
                             <input type="password" name="confirmPassword" formControlName="confirmPassword"
-                                class="form-control">
+                                class="form-control" (copy)="false" (paste)="false" (cut)="false">
                             <div class="text-danger" *ngIf="confirmPassword?.touched && confirmPassword?.invalid">
                                 <div *ngIf="confirmPassword?.errors?.['required']">
                                     Confirm Password Required

@@ -9,28 +9,31 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <div class="flex">
+            <div class="d-flex justify-content-between align-content-between">
                 <ul class="navbar-nav nav-underline mt-1" id="navigation">
                     <li class="nav-item">
                         <a class="nav-link active" routerLink="home">Home Page</a>
                     </li>
-                    <li class="nav-item">
+                    <li *ngIf="!isUserLoggedIn()" class="nav-item">
                         <a class="nav-link" routerLink="register">Register</a>
                     </li>
-                    <li class="nav-item">
+                    <li *ngIf="!isUserLoggedIn()" class="nav-item">
                         <a class="nav-link" routerLink="login">Login</a>
                     </li>
-                    <li class="nav-item" id="profile">
-                        <a class="nav-link" [routerLink]="['/user/dashboard',firstName]">
+                </ul>
+                <ul *ngIf="isUserLoggedIn()" class="navbar-nav nav-underline mt-1" id="dashboard">
+                    <li class="nav-item position-relative" id="profile">
+                        <a class="nav-link" [routerLink]="['/user/dashboard',firstName]"
+                            [queryParams]="{id:getUserId()}">
                             <span class="bi-person-circle"></span>
                         </a>
                     </li>
-                    <li id="full-name" *ngIf="firstName">
-                        <label>Hi! {{firstName |uppercase | slice:0:5}}</label>
+                    <li id="full-name" *ngIf="getFirstName()">
+                        <label>Hi! {{firstName |uppercase}}</label>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" routerLink="#" (click)="logOut()">Logout</a>
-                    </li> -->
+                    <li class="nav-item">
+                        <button class="nav-link" (click)="logOut()">Logout</button>
+                    </li>
                 </ul>
             </div>
         </div>

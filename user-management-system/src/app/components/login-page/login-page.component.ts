@@ -31,7 +31,9 @@ export class LoginPageComponent {
         //redirect to dashboard
         const firstName = response.headers.get('FirstName');
         const userId = response.headers.get("UserId");
-        this.router.navigate(['/user/dashboard', firstName],{queryParams:{id:userId}});
+        this.authService.setFirstName(firstName);
+        this.authService.setUserId(userId);
+        this.router.navigate(['/user/dashboard', firstName], { queryParams: { id: userId }, replaceUrl: true });
       },
       error: (error) => {
         console.log(error)

@@ -9,12 +9,13 @@ import { TodoListComponent } from "../components/todo-list/todo-list.component";
 import { TodoManagerComponent } from "../components/todo-manager/todo-manager.component";
 import { SecurityConfigGuard } from "./app.routing.guard";
 import { UserListComponent } from "../components/user-list/user-list.component";
+import { NoAuthRouteGuardSecurityConfig } from "./app.noRoute.guard";
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomePageComponent },
-    { path: 'register', component: RegisterPageComponent },
-    { path: 'login', component: LoginPageComponent },
+    { path: 'register', component: RegisterPageComponent, canActivate: [NoAuthRouteGuardSecurityConfig] },
+    { path: 'login', component: LoginPageComponent, canActivate: [NoAuthRouteGuardSecurityConfig] },
     { path: 'user/dashboard/:name', component: DashboardPageComponent, canActivate: [SecurityConfigGuard] },
     { path: 'user/dashboard/todo_list/:name', component: TodoListComponent, canActivate: [SecurityConfigGuard] },
     { path: 'user/todo_manage/:name', component: TodoManagerComponent, canActivate: [SecurityConfigGuard] },

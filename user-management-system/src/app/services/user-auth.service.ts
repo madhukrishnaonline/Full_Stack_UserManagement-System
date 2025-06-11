@@ -5,6 +5,22 @@ import { Injectable } from "@angular/core";
 })
 export class UserAuthService {
 
+    firstName: string | null = '';
+    setFirstName(name: string | null): void {
+        this.firstName = name;
+    }
+    getFirstName() {
+        return this.firstName;
+    }
+
+    userId: string | null = '';
+    setUserId(id: string | null): void {
+        this.userId = id;
+    }
+    getUserId() {
+        return this.userId;
+    }
+
     isTokenAvailable(): string | null {
         return sessionStorage.getItem('Auth_Token');
     }
